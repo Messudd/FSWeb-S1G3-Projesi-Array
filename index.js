@@ -223,8 +223,12 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
 
-function ortalamaKelimeSayisi(/*kod buraya*/){
-  /*kod buraya*/
+
+function ortalamaKelimeSayisi(){
+
+
+
+  
 }
 
 
@@ -240,49 +244,88 @@ Aşağıdakileri yapmak için rastgeleTatlar işlevini ve yeni dizileri kullanı
   Örneğin: rastgeleTatlar(orijinalTatlar, yeniTatlar, mevsimlikTatlar, bolgeselTatlar) çalıştırıldığında ["Kestane", "Ballı Badem,"..."Hindistan Cevizi", "Kuru üzüm"].
 */
 
+const yeniTatlar = [
+  "Badem",
+  "Ballı Badem",
+  "Fıstık Ezmesi",
+  "Profiterol",
+  "Madlen Çikolata"
+ ]
 
-function rastgeleTatlar(/*kod buraya*/){
-  /*kod buraya*/
+const mevsimlikTatlar = [
+  "Pekan",
+  "Kaju",
+  "Çikolatalı Mousse",
+  "Fransız Vanilyası",
+  "Yumurta",
+  "Alman çikolatası",
+  "Kek üzerine krema",
+  "Hindistan Cevizi",
+  "Kaymaklı Biskuvi",
+  "Beyaz Çikolata",
+  "Mango"
+ ]
+
+const bolgeselTatlar = [
+  "Kaymak",
+  "Karpuz",
+  "Karadut",
+  "Turunç",
+  "Portakal",
+  "Yogurt",
+  "Krem Peynir",
+  "Kakao",
+  "Karamel macchiato",
+  "Kuru üzüm",
+  "Peynir",
+  "Karamel"
+ ]
+
+const randomArray = [];
+
+function rastgeleTatlar(birnciDizi,ikinciDizi,ucuncuDizi,DorduncuDizi){
+   
+  let index;
+  let i=0;
+  let j=0;
+  let k=0;
+  let h=0;
+
+  while(i<8)
+  {
+    index = Math.floor(Math.random()*25);
+    let rand = birnciDizi[index];
+    randomArray.push(rand);
+    i++;
+  }
+  while(j<4)
+  {
+    index = Math.floor(Math.random()*5);
+    let rand = ikinciDizi[index];
+    randomArray.push(rand);
+    j++;
+  }
+  while(k<6)
+  {
+    index = Math.floor(Math.random()*10);
+    let rand = ucuncuDizi[index];
+    randomArray.push(rand);
+    k++;
+  }
+  while(h<7)
+  {
+    index = Math.floor(Math.random()*12);
+    let rand = DorduncuDizi[index];
+    randomArray.push(rand);
+    h++;
+  }
+ return randomArray;
+    
 }
 
+console.log("Random - Dizi : ",(rastgeleTatlar(newArray,yeniTatlar,mevsimlikTatlar,bolgeselTatlar)));
+
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
-// const yeniTatlar = [
-//   "Badem",
-//   "Ballı Badem",
-//   "Fıstık Ezmesi",
-//   "Profiterol",
-//   "Madlen Çikolata"
-// ]
-
-// const mevsimlikTatlar = [
-// "Pekan",
-// "Kaju",
-// "Çikolatalı Mousse",
-// "Fransız Vanilyası",
-// "Yumurta",
-// "Alman çikolatası",
-// "Kek üzerine krema",
-// "Hindistan Cevizi",
-// "Kaymaklı Biskuvi",
-// "Beyaz Çikolata",
-// "Mango"
-// ]
-
-// const bolgeselTatlar = [
-// "Kaymak",
-// "Karpuz",
-// "Karadut",
-// "Turunç",
-// "Portakal",
-// "Yogurt",
-// "Krem Peynir",
-// "Kakao",
-// "Karamel macchiato",
-// "Kuru üzüm",
-// "Peynir",
-// "Karamel"
-// ]
-
 
 /* Lütfen bu satırın altındaki hiçbir şeyi değiştirmeyin */
 function sa(){
