@@ -29,6 +29,13 @@ const orijinalTatlar = [
   "Vanilya",
 ];
 
+const newArray = [];
+for (let i=0;i<orijinalTatlar.length;i++){
+
+   newArray.push(orijinalTatlar[i]);
+}
+
+
 /* Görev 1: Diziyi kopyalama!
 Orijinal tatların bulunduğu toplam 25 aromanın olduğu bir dizimiz var (yukarıya bakın). Bu görevde, bu dizi'ye veri yazma ve bu diziden veri okuma işlemleri yapacağız.
 Tüm bu değişiklikleri yaparken, gerçek, orijinal 25 lezzetin listesini kaybetmek istemiyoruz. Bu yüzden orijinal diziyi kopyalamamız gerekmektedir!
@@ -39,11 +46,17 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
+function kopyala(){
 
-function kopyala(/*kod buraya*/){
-  /*kod buraya*/
+  const yeniTatlar = new Array();
+  for (let i=0;i<orijinalTatlar.length;i++){
+
+     yeniTatlar.push(orijinalTatlar[i]);
+  }
+  return yeniTatlar;
+
 }
-
+console.log(kopyala());
 
 /* Görev 2:
 Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları kabul etmelidir:
@@ -56,9 +69,21 @@ Bir dizinin tam olarak 25 çeşit olduğunu onaylayın. İşleviniz şunları ka
 */
 
 
-function dizi25Cesitmi(/*kod buraya*/){
-  /*kod buraya*/
+function dizi25Cesitmi(liste){
+
+      let state = liste.length===25;
+      for (let i in liste){
+        console.log("listenin "+ (Number(i)+1)+". degeri = "+liste[i]); // 25 ceşit olduğunu tek tek görmek için komut //
+      }
+    
+      if(!state){
+        return false;
+      }
+      else
+        return true;
 }
+
+console.log(dizi25Cesitmi(orijinalTatlar));
 
 
 /* Görev 3:
@@ -73,10 +98,14 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
 
+function cesitEkle(dizi,tat){
 
-function cesitEkle(/*kod buraya*/){
-  /*kod buraya*/
+    dizi.unshift(tat);
+    return dizi;
 }
+const tatlar = newArray;
+let yeniTad = "Kakule";
+console.log(cesitEkle(tatlar,yeniTad));
 
 
 /* Cörev 4:
@@ -92,9 +121,11 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 */
 
 
-function sonCesitiKaldir(/*kod buraya*/){
-  /*kod buraya*/
+function sonCesitiKaldir(yenidizi){
+    yenidizi.pop();
+    return yenidizi; 
 }
+console.log(sonCesitiKaldir(tatlar));
 
 
 /* Görev 5:
@@ -108,9 +139,11 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/){
-  /*kod buraya*/
+function indekstekiCesitiGetir(liste,sayi){
+
+    return liste[sayi];
 }
+console.log(indekstekiCesitiGetir(tatlar,2));
 
 
 /* Görev 6:
@@ -128,10 +161,17 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/){
-  /*kod buraya*/
-}
+function ismeGoreCesitCikar(lezzetler,content){
 
+     let index = lezzetler.indexOf(content);
+     if( index != -1 ){
+
+      lezzetler.splice(index,1);
+      return lezzetler;
+     }
+}
+let cesit = "Limon";
+console.log(ismeGoreCesitCikar(tatlar,cesit));
 
 /* Görev 7:
 
@@ -153,12 +193,23 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
+function ismeGoreFiltrele(newArray,lezzet){
 
-function ismeGoreFiltrele(/*kod buraya*/){
-  /*kod buraya*/
+  const filter_array = [];
+  let j=0;
+  while(j<newArray.length){
+       
+      let status = newArray[j].includes(lezzet);
+      if(status){
+        filter_array.push(newArray[j]);
+      }
+
+    j++;
+  }
+  return filter_array;
 }
-
-
+const lezzet = "Çikolata";
+console.log(ismeGoreFiltrele(newArray,lezzet));
 
 /* ALIŞTIRMA */
 
